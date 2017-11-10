@@ -1,0 +1,45 @@
+{
+  "name": "webpack-mpa-boilerplate",
+  "version": "0.0.0",
+  "description": "webpack-mpa-boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "build:dev": "npm run clean && npm run webpack -- --config webpack.dev.js",
+    "build:prod": "npm run clean && npm run webpack -- --config webpack.prod.js",
+    "clean": "rm -rf public/js",
+    "karma:start": "karma start",
+    "test": "karma run",
+    "webpack": "./node_modules/webpack/bin/webpack.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joefallon/webpack-mpa-boilerplate.git"
+  },
+  "author": "Joe Fallon <joseph.t.fallon@gmail.com> (http://blog.joefallon.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joefallon/webpack-mpa-boilerplate/issues"
+  },
+  "homepage": "https://github.com/joefallon/webpack-mpa-boilerplate#readme",
+  "devDependencies": {
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.51",
+    "@types/webpack": "^3.8.1",
+    "assert": "^1.4.1",
+    "awesome-typescript-loader": "^3.3.0",
+    "karma": "^1.7.1",
+    "karma-mocha": "^1.3.0",
+    "karma-webpack": "^2.0.5",
+    "mocha": "^4.0.1",
+    "source-map-loader": "^0.2.3",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "^3.8.1",
+    "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {
+    "@types/accounting": "^0.4.1",
+    "@types/jquery": "^3.2.16",
+    "accounting": "^0.4.1",
+    "jquery": "^3.2.1"
+  }
+}
