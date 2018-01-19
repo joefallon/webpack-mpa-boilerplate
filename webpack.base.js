@@ -9,16 +9,16 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'public/js'),
-        filename: '[name].bundle.js'
+        publicPath: '/',
+        filename: '[name].js'
     },
     devtool: 'inline-source-map',
     module: {
         rules: [
-            { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-            { enforce: "pre", test: /\.js$/, loader: 'source-map-loader' }
+            { enforce: 'pre', test: /\.js$/, use: 'source-map-loader' }
         ]
     },
     plugins: [
-        new CommonsChunkPlugin({ name: 'common', filename: 'common.js' })
+        new CommonsChunkPlugin({ name: 'common', filename: 'common.js', minChunks: 2 })
     ]
 };

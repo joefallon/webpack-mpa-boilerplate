@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true,
-    "inlineSourceMap": true,
+    "alwaysStrict": true,
     "downlevelIteration": true,
+    "importHelpers": false,
+    "inlineSourceMap": true,
     "jsx": "react",
-    "strictNullChecks": false,
-    "skipLibCheck": true
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "skipLibCheck": true,
+    "strictFunctionTypes": true,
+    "target": "es5",
+    "lib": [ "es6", "dom", "scripthost" ]
   },
   "exclude": [
     "node_modules"
