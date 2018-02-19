@@ -1,50 +1,28 @@
 'use strict';
 
 module.exports = function(config) {
+
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
 
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['mocha'],
 
         // list of files / patterns to load in the browser
         files: [
-            // only specify one entry point and require all tests in there
-            'test/client/test_index.js'
+            'public/js/index_test.js'
         ],
 
         // list of files to exclude
         exclude: [
         ],
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'test/client/test_index.js': ['webpack']
-        },
-
-        webpack: {
-            devtool: 'inline-source-map',
-            module: {
-                rules: [
-                    { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-                    { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
-                ]
-            }
-        },
-
-        webpackMiddleware: {
-            noInfo: true
-        },
-
-        autoWatchBatchDelay: 500,
+        autoWatchBatchDelay: 0,
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['mocha'],
 
         // web server port
         port: 9876,
@@ -58,7 +36,7 @@ module.exports = function(config) {
         logLevel: config.LOG_INFO,
 
         // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: false,
+        autoWatch: true,
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
@@ -71,5 +49,5 @@ module.exports = function(config) {
         // Concurrency level
         // how many browser should be started simultaneous
         concurrency: Infinity
-    })
+    });
 };

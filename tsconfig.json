@@ -2,16 +2,16 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "downlevelIteration": true,
-    "importHelpers": false,
+    "importHelpers": true,
     "inlineSourceMap": true,
-    "jsx": "react",
     "module": "commonjs",
     "noImplicitReturns": true,
     "noImplicitThis": true,
+    "pretty": true,
     "skipLibCheck": true,
     "strictFunctionTypes": true,
     "target": "es5",
-    "lib": [ "es6", "dom", "scripthost" ]
+    "lib": [ "es6", "dom" ]
   },
   "exclude": [
     "node_modules"

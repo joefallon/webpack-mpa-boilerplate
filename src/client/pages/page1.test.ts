@@ -1,6 +1,6 @@
 import $      = require('jquery');
 import assert = require('assert');
-import page1  = require('../../../src/client/pages/page1');
+import page1  = require('./page1');
 
 
 describe('page1', () => {

@@ -12,7 +12,6 @@ module.exports = {
         publicPath: '/',
         filename: '[name].js'
     },
-    devtool: 'inline-source-map',
     module: {
         rules: [
             { enforce: 'pre', test: /\.js$/, use: 'source-map-loader' }

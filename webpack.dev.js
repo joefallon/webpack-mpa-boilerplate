@@ -10,17 +10,11 @@ const NODE_ENV = {
 };
 
 module.exports = merge(base, {
+    devtool: 'inline-source-map',
     watchOptions: {
         aggregateTimeout: 250,
         poll: false,
-        ignored: [
-            /node_modules/,
-            "src/**/*.tsx",
-            "src/**/*.ts",
-            "src/**/*.test.*",
-            "src/**/*.scss",
-            "src/server/**/*"
-        ]
+        ignored: [/node_modules/, "src/**/*.ts", "src/**/*.test.*"]
     },
     plugins: [
         new webpack.DefinePlugin(NODE_ENV)

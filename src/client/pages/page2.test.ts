@@ -1,17 +1,20 @@
 import assert = require('assert');
-import page2  = require('../../../src/client/pages/page2');
+import page2  = require('./page2');
 
 
 describe('page2', () => {
     it('fake test pass 1', (done) => {
+        assert.ok(true);
         done();
     });
 
     it('fake test pass 2', (done) => {
+        assert.ok(true);
         done();
     });
 
     it('fake test pass 3', (done) => {
+        assert.ok(true);
         done();
     });
 });
