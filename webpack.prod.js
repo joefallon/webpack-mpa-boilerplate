@@ -1,8 +1,8 @@
 'use strict';
 const base           = require('./webpack.base.js');
 const merge          = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack        = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const NODE_ENV = {
     'process.env': {
