@@ -12,16 +12,23 @@ function displayName() {
     $('#account_name').text(name);
 }
 
-function displayBalance() {
-    const formattedBalance = Accounting.formatMoney(balance);
-    $('#account_balance').text(formattedBalance);
+function displayBalance(): Promise<null> {
+    return new Promise(async (resolve, reject) => {
+        setTimeout(() => {
+            const formattedBalance = Accounting.formatMoney(balance);
+            $('#account_balance').text(formattedBalance);
+            resolve();
+        }, 0);
+    });
+
 }
 
-export function displayAccount() {
+export async function displayAccount () {
     displayName();
-    displayBalance();
+    await displayBalance();
 }
 
-$(() => {
-    displayAccount();
+$(async () => {
+    await displayAccount();
+    let a = 1 + 2;
 });

@@ -4,6 +4,7 @@ import page2  = require('./page2');
 
 describe('page2', () => {
     it('fake test pass 1', (done) => {
+        page2.dummyFunction();
         assert.ok(true);
         done();
     });

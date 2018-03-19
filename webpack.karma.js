@@ -1,5 +1,6 @@
 'use strict';
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/client/index_test.js',
@@ -12,7 +13,7 @@ module.exports = {
     devtool: 'inline-source-map',
 
     watchOptions: {
-        aggregateTimeout: 250,
+        aggregateTimeout: 500,
         poll: false,
         ignored: [ /node_modules/, "src/server/**/*", "src/**/*.ts", "src/**/*.scss", "src/**/*.css" ]
     },
@@ -24,5 +25,6 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.ProvidePlugin({Promise: 'es6-promise'})
     ]
 };

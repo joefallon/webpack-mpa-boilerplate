@@ -1,9 +1,11 @@
 'use strict';
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     entry: {
+        vendor: ['jquery'],
         page1: './src/client/pages/page1.js',
         page2: './src/client/pages/page2.js'
     },
@@ -18,6 +20,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CommonsChunkPlugin({ name: 'common', filename: 'common.js', minChunks: 2 })
+        new webpack.ProvidePlugin({Promise: 'es6-promise'}),
+        new CommonsChunkPlugin({ names: ['common', 'vendor', 'manifest'], minChunks: 2})
     ]
 };
