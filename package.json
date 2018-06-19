@@ -4,17 +4,17 @@
   "description": "webpack-mpa-boilerplate",
   "main": "index.js",
   "scripts": {
-    "build:dev": "npm run clean && npm run webpack -- --config webpack.dev.js  --progress",
-    "build:dev:watch": "npm run clean && npm run webpack -- --config webpack.dev.js --watch",
+    "build:dev": "npm run clean && npm run webpack -- --config webpack.config.js --mode development",
+    "build:dev:watch": "npm run clean && npm run webpack -- --config webpack.config.js --watch --mode development",
     "build:karma": "npm run clean && npm run webpack -- --config webpack.karma.js --watch",
-    "build:prod": "npm run clean && npm run webpack -- --config webpack.prod.js --progress",
+    "build:prod": "npm run clean && npm run webpack -- --config webpack.config.js --mode production",
     "clean": "rm -rf public/js",
     "karma:run": "karma run",
     "karma:start": "karma start",
     "mocha": "./node_modules/mocha/bin/mocha",
     "start:dev": "nodemon ./src/server/index.js --config nodemon.json",
     "start:prod": "NODE_ENV=production node ./src/server/index.js",
-    "webpack": "./node_modules/webpack/bin/webpack.js"
+    "webpack": "./node_modules/webpack-command/lib/cli.js"
   },
   "repository": {
     "type": "git",
@@ -27,28 +27,28 @@
   },
   "homepage": "https://github.com/joefallon/webpack-mpa-boilerplate#readme",
   "devDependencies": {
-    "@types/mocha": "2.2.48",
-    "@types/node": "8.9.5",
-    "@types/sinon": "4.3.0",
-    "@types/webpack": "3.8.11",
-    "@types/webpack-env": "1.13.5",
-    "assert": "1.4.1",
-    "karma": "2.0.0",
-    "karma-mocha": "1.3.0",
-    "karma-mocha-reporter": "2.2.5",
-    "mocha": "5.0.4",
-    "sinon": "4.4.6",
-    "source-map-loader": "0.2.3",
-    "uglifyjs-webpack-plugin": "1.2.4",
-    "webpack": "3.11.0",
-    "webpack-merge": "4.1.2"
+    "@types/mocha": "^5.2.2",
+    "@types/node": "^10.3.4",
+    "@types/sinon": "^5.0.1",
+    "@types/webpack": "^4.4.1",
+    "@types/webpack-env": "^1.13.6",
+    "assert": "^1.4.1",
+    "karma": "^2.0.3",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "mocha": "^5.2.0",
+    "sinon": "^6.0.0",
+    "source-map-loader": "^0.2.3",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-command": "^0.2.1"
   },
   "dependencies": {
-    "@types/accounting": "0.4.1",
-    "@types/jquery": "3.3.1",
-    "accounting": "0.4.1",
-    "es6-promise": "4.2.4",
-    "jquery": "3.3.1",
-    "tslib": "1.9.0"
+    "@types/accounting": "^0.4.1",
+    "@types/jquery": "^3.3.3",
+    "accounting": "^0.4.1",
+    "es6-promise": "^4.2.4",
+    "jquery": "^3.3.1",
+    "tslib": "^1.9.2"
   }
 }
