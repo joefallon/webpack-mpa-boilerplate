@@ -20,7 +20,25 @@ module.exports = {
         ]
     },
     optimization: {
-
+        // runtimeChunk: 'single',  // creates runtime.js
+        runtimeChunk: {
+            name: 'vendor'  // places webpack runtime in vendor.js
+        },
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /node_modules/,
+                    name: 'vendor',
+                    chunks: 'initial'
+                },
+                common: {
+                    name: 'common',
+                    chunks: 'initial',
+                    minChunks: 2,
+                    minSize: 0
+                }
+            }
+        }
     },
     plugins: [
         new webpack.ProvidePlugin({Promise: 'es6-promise'})

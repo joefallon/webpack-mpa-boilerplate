@@ -4,10 +4,10 @@
   "description": "webpack-mpa-boilerplate",
   "main": "index.js",
   "scripts": {
-    "build:dev": "npm run clean && npm run webpack -- --config webpack.config.js --mode development",
-    "build:dev:watch": "npm run clean && npm run webpack -- --config webpack.config.js --watch --mode development",
+    "build:dev": "npm run clean && npm run webpack -- --config webpack.dev.js --progress",
+    "build:dev:watch": "npm run clean && npm run webpack -- --config webpack.dev.js --watch --progress",
     "build:karma": "npm run clean && npm run webpack -- --config webpack.karma.js --watch",
-    "build:prod": "npm run clean && npm run webpack -- --config webpack.config.js --mode production",
+    "build:prod": "npm run clean && npm run webpack -- --config webpack.prod.js --progress",
     "clean": "rm -rf public/js",
     "karma:run": "karma run",
     "karma:start": "karma start",
