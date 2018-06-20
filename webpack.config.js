@@ -19,9 +19,11 @@ module.exports = {
         ]
     },
     optimization: {
+        // runtimeChunk: true,
         splitChunks: {
             cacheGroups: {
                 common: {
+                    // enforce: true,
                     chunks: "initial",
                     minChunks: 2,
                     maxInitialRequests: 5, // The default limit is too small to showcase the effect
