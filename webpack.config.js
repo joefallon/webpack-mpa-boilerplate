@@ -19,23 +19,22 @@ module.exports = {
         ]
     },
     optimization: {
-        // runtimeChunk: true,
+        // runtimeChunk: 'single',  // creates runtime.js
+        runtimeChunk: {
+            name: 'vendor'  // places webpack runtime in vendor.js
+        },
         splitChunks: {
             cacheGroups: {
-                common: {
-                    // enforce: true,
-                    chunks: "initial",
-                    minChunks: 2,
-                    maxInitialRequests: 5, // The default limit is too small to showcase the effect
-                    minSize: 0, // This is example is too small to create commons chunks
-                    name: 'common'
-                },
                 vendor: {
                     test: /node_modules/,
-                    chunks: "initial",
-                    name: "vendor",
-                    priority: 10,
-                    enforce: true
+                    name: 'vendor',
+                    chunks: 'initial'
+                },
+                common: {
+                    name: 'common',
+                    chunks: 'initial',
+                    minChunks: 2,
+                    minSize: 0
                 }
             }
         }
