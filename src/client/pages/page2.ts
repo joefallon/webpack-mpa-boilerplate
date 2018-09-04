@@ -7,7 +7,7 @@ let account = new BankAccount(100, 'John Doe');
 let balance = account.getBalance();
 let name    = account.getName();
 
-console.log(balance);
+// console.log(balance);
 
 function asyncReady(): Promise<null> {
     return new Promise(async (resolve, reject) => {

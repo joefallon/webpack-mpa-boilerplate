@@ -9,7 +9,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: "js/index_test.js"
+        filename: 'js/index_test.js'
     },
 
     devtool: 'inline-source-map',

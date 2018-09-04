@@ -29,11 +29,11 @@ module.exports = {
                 vendor: {
                     test: /node_modules/,
                     name: 'vendor',
-                    chunks: 'initial'
+                    chunks: 'all'
                 },
                 common: {
                     name: 'common',
-                    chunks: 'initial',
+                    chunks: 'all',
                     minChunks: 2,
                     minSize: 0
                 }

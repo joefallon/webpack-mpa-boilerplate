@@ -18,7 +18,7 @@ module.exports = merge(base, {
     watchOptions: {
         aggregateTimeout: 250,
         poll: false,
-        ignored: [/node_modules/, "src/**/*.ts", "src/**/*.test.*"]
+        ignored: [/node_modules/, 'src/**/*.ts', 'src/**/*.test.*']
     },
 
     plugins: [
