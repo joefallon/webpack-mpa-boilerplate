@@ -1,5 +1,6 @@
-import assert = require('assert');
-import page2  = require('./page2');
+import * as assert from 'assert';
+
+const page2  = require('./page2');
 
 
 describe('page2', () => {

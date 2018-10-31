@@ -13,12 +13,12 @@ const NODE_ENV = {
 module.exports = merge(base, {
     mode: 'development',
 
-    devtool: 'inline-source-map',
+    devtool: 'inline-cheap-module-source-map',
 
     watchOptions: {
         aggregateTimeout: 250,
         poll: false,
-        ignored: [/node_modules/, 'src/**/*.ts', 'src/**/*.test.*']
+        ignored: [/node_modules/]
     },
 
     plugins: [

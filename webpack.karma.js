@@ -5,28 +5,48 @@ const webpack = require('webpack');
 module.exports = {
     mode: 'development',
 
-    entry: './src/client/index_test.js',
+    entry: './src/client/index_test.ts',
 
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'js/index_test.js'
     },
 
-    devtool: 'inline-source-map',
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"]
+    },
+
+    devtool: 'inline-cheap-module-source-map',
 
     watchOptions: {
         aggregateTimeout: 500,
         poll: false,
-        ignored: [ /node_modules/, "src/server/**/*", "src/**/*.ts", "src/**/*.scss", "src/**/*.css" ]
+        ignored: [ /node_modules/, "src/server/**/*" ]
     },
 
     module: {
         rules: [
-            { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
+            {
+                test: /\.worker\.ts$/,
+                use: {
+                    loader: 'worker-loader',
+                    options: { inline: false, fallback: true }
+                }
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: [/node_modules/],
+                options: {
+                    transpileOnly: true
+                }
+            },
+            { enforce: 'pre', test: /\.js$/, use: 'source-map-loader' }
         ]
     },
 
     plugins: [
-        new webpack.ProvidePlugin({Promise: 'es6-promise'})
+        // for ie11
+        // new webpack.ProvidePlugin({Promise: 'es6-promise'})
     ]
 };

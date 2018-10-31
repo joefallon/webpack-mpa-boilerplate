@@ -1,34 +1,46 @@
 /* page1.ts */
-import $           = require('jquery');
-import Accounting  = require('accounting');
+import * as Accounting from 'accounting';
+
 import { BankAccount } from '../domain/BankAccount';
+import { documentReady } from '../domain/documentReady';
 
+documentReady(async () => {
+    let account = new BankAccount(100, 'John Doe');
+    await displayAccount(account);
+    let a = 1 + 2;
+});
 
-let account = new BankAccount(100, 'John Doe');
-let balance = account.getBalance();
-let name    = account.getName();
-
-function displayName() {
-    $('#account_name').text(name);
+export async function displayAccount(account: BankAccount) {
+    displayName(account);
+    await displayBalance(account);
 }
 
-function displayBalance(): Promise<null> {
+function displayName(account: BankAccount) {
+    let name = account.getName();
+    const accountNameElement = document.getElementById('account_name');
+
+    if(accountNameElement) {
+        accountNameElement.textContent = name;
+    }
+}
+
+function displayBalance(account: BankAccount): Promise<null> {
     return new Promise(async (resolve, reject) => {
+        let balance = account.getBalance();
+
         setTimeout(() => {
             const formattedBalance = Accounting.formatMoney(balance);
-            $('#account_balance').text(formattedBalance);
+            const accountBalanceElement = document.getElementById('account_balance');
+
+            if(accountBalanceElement) {
+                accountBalanceElement.innerText = formattedBalance;
+            }
+
             resolve();
         }, 0);
     });
-
 }
 
-export async function displayAccount () {
-    displayName();
-    await displayBalance();
-}
 
-$(async () => {
-    await displayAccount();
-    let a = 1 + 2;
-});
+
+

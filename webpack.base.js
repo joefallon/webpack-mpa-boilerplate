@@ -5,35 +5,47 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        vendor: ['jquery'],
-        page1: './src/client/pages/page1.js',
-        page2: './src/client/pages/page2.js'
+        page1: './src/client/pages/page1.ts',
+        page2: './src/client/pages/page2.ts'
     },
     output: {
         path: path.resolve(__dirname, 'public/js'),
         publicPath: '/',
         filename: '[name].js'
     },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"]
+    },
     module: {
         rules: [
+            {
+                test: /\.worker\.ts$/,
+                use: {
+                    loader: 'worker-loader',
+                    options: { inline: false, fallback: true }
+                }
+            },
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: [/node_modules/],
+                options: {
+                    transpileOnly: true
+                }
+            },
             { enforce: 'pre', test: /\.js$/, use: 'source-map-loader' }
         ]
     },
     optimization: {
         // runtimeChunk: 'single',  // creates runtime.js
         runtimeChunk: {
-            name: 'vendor'  // places webpack runtime in vendor.js
+            name: 'common'  // places webpack runtime in manifest.js
         },
         splitChunks: {
             cacheGroups: {
-                vendor: {
-                    test: /node_modules/,
-                    name: 'vendor',
-                    chunks: 'all'
-                },
                 common: {
                     name: 'common',
-                    chunks: 'all',
+                    chunks: 'all',  // or 'all' or 'initial'
                     minChunks: 2,
                     minSize: 0
                 }
@@ -41,6 +53,7 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.ProvidePlugin({Promise: 'es6-promise'})
+        // for ie11
+        // new webpack.ProvidePlugin({Promise: 'es6-promise'})
     ]
 };

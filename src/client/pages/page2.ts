@@ -1,29 +1,28 @@
 /* page2.ts */
-import $ = require('jquery');
-
 import { BankAccount } from '../domain/BankAccount';
+import { documentReady } from '../domain/documentReady';
 
 let account = new BankAccount(100, 'John Doe');
 let balance = account.getBalance();
 let name    = account.getName();
 
-// console.log(balance);
+console.log('name    = ' + name);
+console.log('balance = ' + balance);
 
 function asyncReady(): Promise<null> {
     return new Promise(async (resolve, reject) => {
         setTimeout(() => {
-            console.log('ready!');
+            console.log('page2 ready!');
             resolve();
-        }, 0);
+        });
     });
 }
 
 export function dummyFunction() {
     let a = 1 + 1;
-
 }
 
-$(async () => {
+documentReady(async () => {
     await asyncReady();
-    console.log(process.env);
+    console.log('#asyncReady complete...');
 });

@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "downlevelIteration": true,
     "importHelpers": true,
-    "inlineSourceMap": true,
-    "module": "commonjs",
+    "sourceMap": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "pretty": true,
     "skipLibCheck": true,
     "strictFunctionTypes": true,
+    "strictNullChecks": false,
     "target": "es5",
-    "lib": [ "es6", "dom" ]
+    "lib": [ "es6", "dom", "webworker", "scripthost" ]
   },
+  "include": [
+    "./typings/custom.d.ts", "./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": [
     "node_modules"
   ]
