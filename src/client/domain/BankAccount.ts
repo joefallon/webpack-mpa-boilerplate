@@ -1,6 +1,6 @@
 export class BankAccount {
-    private _balance: number;
-    private _name: string;
+    private readonly _balance: number;
+    private readonly _name: string;
 
     public constructor(balance: number, name: string) {
         this._balance = balance;
