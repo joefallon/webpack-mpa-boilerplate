@@ -1,7 +1,7 @@
 /* webpack.dev.js */
 'use strict';
-const base    = require('./webpack.base.js');
-const merge   = require('webpack-merge');
+const base = require('./webpack.base.js');
+const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 
 const NODE_ENV = {
@@ -15,11 +15,11 @@ module.exports = merge(base, {
 
     devtool: 'inline-cheap-module-source-map',
 
-    watchOptions: {
-        aggregateTimeout: 250,
-        poll: false,
-        ignored: [/node_modules/]
-    },
+    // watchOptions: {
+    //     aggregateTimeout: 250,
+    //     poll: false,
+    //     ignored: [/node_modules/]
+    // },
 
     plugins: [
         new webpack.DefinePlugin(NODE_ENV)

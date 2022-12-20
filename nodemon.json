@@ -1,6 +1,0 @@
-{
-  "verbose": true,
-  "ignore": [ "**/*.test.js", "**/*.ts" ],
-  "watch": [ "./src/server" ],
-  "delay": "1000"
-}

@@ -1,3 +1,4 @@
+// noinspection JSAnnotator,JSFileReferences
 'use strict';
 
 module.exports = function(config) {

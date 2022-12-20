@@ -1,12 +1,11 @@
 /* webpack.base.js */
 'use strict';
-const path    = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        page1: './src/client/pages/page1.ts',
-        page2: './src/client/pages/page2.ts'
+        hello_world: './src/client/pages/hello_world.ts'
     },
     output: {
         path: path.resolve(__dirname, 'public/js'),
@@ -18,21 +17,8 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.worker\.ts$/,
-                use: {
-                    loader: 'worker-loader',
-                    options: { inline: false, fallback: true }
-                }
-            },
-            {
-                test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: [/node_modules/],
-                options: {
-                    transpileOnly: true
-                }
-            },
+            // all files with a `.ts`, `.cts`, `.mts` or `.tsx` extension will be handled by `ts-loader`
+            { test: /\.([cm]?ts|tsx)$/, loader: "ts-loader" },
             { enforce: 'pre', test: /\.js$/, use: 'source-map-loader' }
         ]
     },
@@ -56,4 +42,4 @@ module.exports = {
         // for ie11
         // new webpack.ProvidePlugin({Promise: 'es6-promise'})
     ]
-};
+}

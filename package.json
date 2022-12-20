@@ -1,57 +1,52 @@
 {
-  "name": "webpack-mpa-boilerplate",
-  "version": "0.0.0",
-  "description": "webpack-mpa-boilerplate",
-  "main": "index.js",
-  "scripts": {
-    "build:dev": "npm run clean && npm run webpack -- --config webpack.dev.js --progress",
-    "build:dev:watch": "npm run clean && npm run webpack -- --config webpack.dev.js --watch --progress",
-    "build:karma": "npm run clean && npm run webpack -- --config webpack.karma.js --watch --cache",
-    "build:prod": "npm run clean && npm run webpack -- --config webpack.prod.js --progress",
-    "clean": "rm -rf public/js",
-    "karma": "./node_modules/karma/bin/karma",
-    "karma:run": "karma run",
-    "karma:start": "karma start",
-    "mocha": "./node_modules/mocha/bin/mocha",
-    "start:dev": "nodemon ./src/server/index.js --config nodemon.json",
-    "start:prod": "NODE_ENV=production node ./src/server/index.js",
-    "webpack": "./node_modules/webpack-command/lib/cli.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joefallon/webpack-mpa-boilerplate.git"
-  },
-  "author": "Joe Fallon <joseph.t.fallon@gmail.com> (http://blog.joefallon.net)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/joefallon/webpack-mpa-boilerplate/issues"
-  },
-  "homepage": "https://github.com/joefallon/webpack-mpa-boilerplate#readme",
-  "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.7.4",
-    "@types/sinon": "^7.0.13",
-    "@types/webpack": "^4.39.1",
-    "@types/webpack-env": "^1.14.0",
-    "assert": "^2.0.0",
-    "karma": "^4.3.0",
-    "karma-mocha": "^1.3.0",
-    "karma-mocha-reporter": "^2.2.5",
-    "mocha": "^6.2.0",
-    "sinon": "^7.4.2",
-    "source-map-loader": "^0.2.4",
-    "ts-loader": "^6.0.4",
-    "typescript": "3.6.2",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8",
-    "webpack-command": "^0.5.0",
-    "webpack-merge": "^4.2.2"
-  },
-  "dependencies": {
-    "@types/accounting": "^0.4.1",
-    "accounting": "^0.4.1",
-    "es6-promise": "^4.2.8",
-    "tslib": "^1.10.0"
-  }
+    "name": "webpack-mpa-boilerplate",
+    "version": "0.0.0",
+    "description": "webpack-mpa-boilerplate",
+    "main": "index.js",
+    "scripts": {
+        "build:dev": "npm run clean && npm run webpack -- --config webpack.dev.js --progress",
+        "build:dev:watch": "npm run clean && npm run webpack -- --config webpack.dev.js --watch --progress",
+        "build:karma": "npm run clean && npm run webpack -- --config webpack.karma.js --watch --cache",
+        "clean": "rm -rf public/js",
+        "karma": "./node_modules/karma/bin/karma",
+        "karma:run": "karma run",
+        "karma:start": "karma start",
+        "mocha": "./node_modules/.bin/mocha",
+        "start:dev": "nodemon ./src/server/index.js --config nodemon.json",
+        "start:prod": "NODE_ENV=production node ./src/server/index.js",
+        "test": "jest",
+        "webpack": "npx webpack-cli"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joefallon/webpack-mpa-boilerplate.git"
+    },
+    "keywords": [],
+    "author": "Joe Fallon <joseph.t.fallon@gmail.com> (https://github.com/joefallon)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joefallon/webpack-mpa-boilerplate/issues"
+    },
+    "homepage": "https://github.com/joefallon/webpack-mpa-boilerplate#readme",
+    "dependencies": {
+        "tslib": "^2.4.1"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.1",
+        "@types/sinon": "^10.0.13",
+        "@types/webpack": "^5.28.0",
+        "@types/webpack-env": "^1.18.0",
+        "assert": "^2.0.0",
+        "jest": "^29.3.1",
+        "karma": "^6.4.1",
+        "karma-mocha": "^2.0.1",
+        "karma-mocha-reporter": "^2.2.5",
+        "mocha": "^10.2.0",
+        "sinon": "^15.0.1",
+        "source-map-loader": "^4.0.1",
+        "ts-loader": "^9.4.2",
+        "webpack": "^5.75.0",
+        "webpack-cli": "^5.0.1",
+        "webpack-merge": "^5.8.0"
+    }
 }

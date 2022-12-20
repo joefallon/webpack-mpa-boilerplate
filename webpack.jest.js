@@ -37,8 +37,8 @@ module.exports = {
     plugins: [
         // for ie11
         // new webpack.ProvidePlugin({Promise: 'es6-promise'})
-        // new webpack.ProvidePlugin({
-        //     process: 'process/browser',
-        // }),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
+        }),
     ]
 };
