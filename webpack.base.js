@@ -5,7 +5,9 @@ const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        hello_world: './src/client/pages/hello_world.ts'
+        hello_world: './src/client/pages/hello_world.ts',
+        page1: './src/client/pages/page1.ts',
+        page2: './src/client/pages/page2.ts'
     },
     output: {
         path: path.resolve(__dirname, 'public/js'),
